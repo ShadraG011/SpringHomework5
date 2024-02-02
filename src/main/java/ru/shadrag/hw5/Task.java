@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.Date;
 
+
 /**
  * ID (автоинкрементное)
  * Описание (не может быть пустым)

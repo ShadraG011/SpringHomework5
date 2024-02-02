@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Изменить задачу</title>
     <link rel="stylesheet" th:href="@{/styles/style.css}">
     <link rel="stylesheet" href="styles/style.css">
@@ -14,11 +15,11 @@
 <body>
 <nav class="navigation">
     <a class="nav-brand" href="#">Shadrag</a>
-    <a class="nav-link active" aria-current="page" th:href="@{/hw5/all-tasks}">Все заметки</a>
-    <a class="nav-link" th:href="@{/hw5/create-task}">Добавить заметку</a>
+    <button type="button" class="btn btn-outline-secondary"><a class="btn" th:href="@{/hw5/all-tasks}">Все задачи</a></button>
+    <button type="button" class="btn btn-outline-secondary"><a class="btn" th:href="@{/hw5/create-task}">Добавить задачу</a></button>
 </nav>
 
-<form class="form" action="#" th:action="@{/hw5/update-task/{id}(id=${task.getId()})}" th:object="${task}" th:method="POST">
+<form class="form" th:action="@{/hw5/update-task/{id}(id=${task.getId()})}" th:object="${task}" th:method="POST">
     <div class="mb-3">
         <label for="title" class="form-label">Название</label>
         <input type="text" class="form-control" id="title" aria-describedby="emailHelp" th:field="*{title}" maxlength="100">
