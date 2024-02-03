@@ -15,27 +15,14 @@ import java.util.Date;
 @Table(name = "tasks")
 public class Task {
 
+    //region КОНСТРУКТОРЫ
     public Task() {
         this.status = Status.NOT_START.getDescription();
         this.date = new Date();
     }
+    //endregion
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(name = "title", nullable = false)
-    private String title;
-
-    @Column(name = "description", nullable = false)
-    private String description;
-
-    @Column(name = "status")
-    private String status;
-
-    @Column(name = "date")
-    private Date date;
-
+    //region ГЕТТЕРЫ И СЕТТЕРЫ
     public Long getId() {
         return id;
     }
@@ -75,4 +62,23 @@ public class Task {
     public void setTitle(String title) {
         this.title = title;
     }
+    //endregion
+
+    //region ПОЛЯ
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "title", nullable = false)
+    private String title;
+
+    @Column(name = "description", nullable = false)
+    private String description;
+
+    @Column(name = "status")
+    private String status;
+
+    @Column(name = "date")
+    private Date date;
+    //endregion
 }

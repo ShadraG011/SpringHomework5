@@ -15,7 +15,7 @@ import java.util.Date;
 @RequestMapping("/hw5")
 public class TasksController {
 
-    private boolean flag;
+    private boolean inIndexPage;
     private TasksService tasksService;
 
     @Autowired
@@ -27,7 +27,7 @@ public class TasksController {
     public String index(Model model) {
         model.addAttribute("buttonStat", Status.ALL_TASKS);
         model.addAttribute("tasks", tasksService.getAllTasks());
-        flag = true;
+        inIndexPage = true;
         return "all-tasks";
     }
 
@@ -38,7 +38,7 @@ public class TasksController {
         task.setStatus(status.getDescription());
         task.setDate(new Date());
         tasksService.updateTask(task.getId(), task);
-        if (flag)
+        if (inIndexPage)
             return "redirect:/hw5/all-tasks";
         else
             return "redirect:/hw5/sort-tasks/" + sortStatus;
@@ -79,7 +79,7 @@ public class TasksController {
 
     @RequestMapping(value = "/sort-tasks/{status}", method = RequestMethod.GET)
     public String sortTaskByStatus(@PathVariable("status") Status status, Model model) {
-        flag = false;
+        inIndexPage = false;
         model.addAttribute("buttonStat", status);
         model.addAttribute("tasks", tasksService.getAllTasks().stream().filter(it -> it.getStatus().equals(status.getDescription())));
         return "all-tasks";

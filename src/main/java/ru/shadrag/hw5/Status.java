@@ -2,7 +2,6 @@ package ru.shadrag.hw5;
 
 
 import java.util.ArrayList;
-import java.util.EnumSet;
 import java.util.List;
 
 public enum Status {
