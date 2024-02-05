@@ -6,7 +6,7 @@ import java.util.List;
 
 public enum Status {
 
-    ALL_TASKS ("Все заметки"),
+    ALL_TASKS ("Все задачи"),
 
     NOT_START("Не начата"),
 
